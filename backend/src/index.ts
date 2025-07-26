@@ -9,11 +9,14 @@ export const runtime = "edge";
 const app = new Hono();
 
 app.use(cors({
-  origin: process.env.CORS_ORIGIN as string,
+  origin: "*",
 }));
 
 app.route("/api/v1/cronJob", cronRoute);
 
 await loadCronJobs();
 
-export default handle(app);
+export default {
+  port: 3000,
+  fetch: handle(app),
+}
