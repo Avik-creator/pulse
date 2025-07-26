@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { createCronjob, cronTestRun, deleteCronjob, disableCronjob, enableCronjob, testPoint, updateCronjob } from "../controllers/cronCrontroller";
+import { createCronjob, cronTestRun, deleteCronjob, disableCronjob, enableCronjob, testPoint, updateCronjob } from "../controllers/cronCrontroller.js";
 
 const cronRoute = new Hono();
 

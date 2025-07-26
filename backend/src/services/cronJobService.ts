@@ -4,8 +4,8 @@ import {
   execute,
   getCronExpression,
   getNextTwoExecutions,
-} from "../utils/utils";
-import { sendServiceFailMail } from "./mailService";
+} from "../utils/utils.js";
+import { sendServiceFailMail } from "./mailService.js";
 
 const prisma = new PrismaClient();
 
