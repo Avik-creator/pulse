@@ -1,10 +1,11 @@
 {
-    "version": 2,
-    "buildCommand": "npm run build",
-    "builds": [
-      { "src": "src/index.ts", "use": "@vercel/node" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "/src/index.ts" }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/src/index.ts"
+    }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/src/index.ts", "permanent": false }
+  ]
+}
