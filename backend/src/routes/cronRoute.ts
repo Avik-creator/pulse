@@ -1,6 +1,8 @@
 import { Hono } from "hono";
 import { createCronjob, cronTestRun, deleteCronjob, disableCronjob, enableCronjob, testPoint, updateCronjob } from "../controllers/cronCrontroller";
 
+export const runtime = "edge";
+
 const cronRoute = new Hono();
 
 cronRoute.post("/create", createCronjob);
