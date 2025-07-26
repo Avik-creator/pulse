@@ -1,8 +1,8 @@
 import { Hono } from "hono";
-import cronRoute from "./routes/cronRoute";
+import cronRoute from "./routes/cronRoute.js";
 import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
-import { loadCronJobs } from "./services/cronJobService";
+import { loadCronJobs } from "./services/cronJobService.js";
 
 export const runtime = "edge";
 

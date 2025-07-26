@@ -1,8 +1,9 @@
-import nodemailer from "nodemailer";
+import {createTransport} from "nodemailer";
+
 
 export const sendServiceFailMail = async (email: string, cronJob: string) => {
   try {
-    const transporter = nodemailer.createTransport({
+    const transporter = createTransport({
       service: "Gmail",
       auth: {
         user: process.env.EMAIL_TO_BE_USED,

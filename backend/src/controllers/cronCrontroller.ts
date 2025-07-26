@@ -5,19 +5,19 @@ import {
   execute,
   getCronExpression,
   getNextTwoExecutions,
-} from "../utils/utils";
+} from "../utils/utils.js";
 import {
   deleteOlderEvents,
   executeJobWithRetry,
   MAX_RETRIES,
   scheduledjobs,
-} from "../services/cronJobService";
+} from "../services/cronJobService.js";
 import {
   CronJobActionSchema,
   CronJobCreateSchema,
   CronJobTestRunSchema,
   CronJobUpdateSchema,
-} from "../validator/cron.validator";
+} from "../validator/cron.validator.js";
 
 const prisma = new PrismaClient();
 
