@@ -16,7 +16,4 @@ app.route("/api/v1/cronJob", cronRoute);
 
 await loadCronJobs();
 
-export default {
-  port: 3000,
-  fetch: handle(app),
-}
+export default handle(app);
