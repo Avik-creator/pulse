@@ -5,6 +5,7 @@ export const runtime = "edge";
 
 const cronRoute = new Hono();
 
+cronRoute.get("/", (c) => c.json({ message: "Hello World" }));
 cronRoute.post("/create", createCronjob);
 cronRoute.post("/test", cronTestRun);
 cronRoute.post("/enable", enableCronjob);
