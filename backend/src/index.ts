@@ -1,9 +1,16 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
+import cronRoute from "./routes/cronRoute";
+import { cors } from "hono/cors";
+import { loadCronJobs } from "./services/cronJobService";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
-  return c.text('Hello Hono!')
-})
+app.use(cors({
+  origin: process.env.CORS_ORIGIN as string,
+}));
 
-export default app
+app.route("/api/v1/cronJob", cronRoute);
+
+await loadCronJobs();
+
+export default app;
