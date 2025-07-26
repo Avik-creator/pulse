@@ -1,10 +1,8 @@
 import { Hono } from "hono";
-import cronRoute from "./routes/cronRoute.js";
+import cronRoute from "./routes/cronRoute";
 import { cors } from "hono/cors";
 import { handle } from "hono/vercel";
-import { loadCronJobs } from "./services/cronJobService.js";
-
-export const runtime = "edge";
+import { loadCronJobs } from "./services/cronJobService";
 
 const app = new Hono();
 
@@ -14,6 +12,9 @@ app.use(cors({
 
 app.route("/api/v1/cronJob", cronRoute);
 
-await loadCronJobs();
+// Initialize cron jobs
+(async () => {
+  await loadCronJobs();
+})();
 
 export default handle(app);
